@@ -1,4 +1,5 @@
 import wonderwomen from "../assets/wonderwomen.png";
+import avartar_login from "../assets/login-avartar.jpg";
 // Import Swiper styles
 import PropTypes from "prop-types";
 import { AiFillCaretDown, AiFillCaretRight } from "react-icons/ai";
@@ -10,6 +11,12 @@ import { FaPlay } from "react-icons/fa";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
 import { useEffect, useState } from "react";
 import '../index.css';
+import { AiFillBook } from "react-icons/ai";
+import { FaPerson } from "react-icons/fa6";
+import { IoIosLogOut } from "react-icons/io";
+import { MdOutlineHistory } from "react-icons/md";
+import { RxAvatar } from "react-icons/rx";
+import { CiSearch } from "react-icons/ci";
 export default function Header(props) {
   const settings = {
     className:
@@ -117,7 +124,8 @@ export default function Header(props) {
               </ul>
             </div>
             <div className=" float-right p-3 ">
-            <div className="max-w-md mx-auto">
+            <div className="flex">
+              <div className="max-w-md mx-auto">
                 <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
                   <div className="grid place-items-center h-full w-12 text-gray-300">
                     <svg
@@ -158,7 +166,112 @@ export default function Header(props) {
                   </div>
                 )}
               </div>
-              <a href="">Đăng nhập</a>
+              <li className="p-3 group flex items-center relative  inline-block dropdown">
+                  <img
+                    src={avartar_login}
+                    alt="avartar_login"
+                    className="h-8 w-8 rounded-3xl"
+                  />
+
+                  <div className="cursor-pointer text-black p-1.5 max-w-lg w-[16rem]  translate-x-[-50%] place-content-center group-hover:flex hidden flex flex-wrap top-14 shadow-lg z-10 dropdown-content  absolute" >
+                    <div className="rounded-t-xl overflow-hidden max-w-lg w-full ">
+                      <a href="#" >
+                        <div className="flex text-sm items-center h-20 bg-lime-600 justify-center">
+                          <div className="flex items-center ">
+                            <img
+                              src={avartar_login}
+                              alt="avartar_login"
+                              className="h-8 w-8 rounded-3xl mr-2"
+                            />
+                            <p>Name User</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div className="rounded-b-xl overflow-hidden max-w-lg w-[60rem]  ">
+
+                      <a href="#" >
+                        <div className=" text-sm items-center bg-slate-400 p-[8px]  ">
+                          <div className="flex  justify-between">
+                            <div className="flex items-center">
+                              <div className="mr-2">
+                                <FaPerson />
+                              </div>
+
+                              <p>Thông tin cá nhân</p>
+                            </div>
+                            <div className="flex items-center">
+
+                              <AiFillCaretDown size={15} />
+                            </div>
+
+                          </div>
+                        </div>
+                      </a>
+                      <a href="#" >
+                        <div className=" text-sm items-center bg-slate-400 p-[8px]  ">
+                          <div className="flex  justify-between">
+                            <div className="flex items-center">
+
+                              <div className="mr-2">
+                                <AiFillBook />
+                              </div>
+                              <p>Bộ sưu tập</p>
+                            </div>
+                            <div className="flex items-center">
+
+                              <AiFillCaretDown size={15} />
+                            </div>
+
+                          </div>
+                        </div>
+                      </a>
+                      <a href="#" >
+                        <div className=" text-sm items-center bg-slate-400 p-[8px]  ">
+                          <div className="flex  justify-between">
+                            <div className="flex items-center">
+                              <div className="mr-2">
+                                <MdOutlineHistory />
+                              </div>
+                              <p>Lịch sử xem phim</p>
+                            </div>
+                            <div className="flex items-center">
+
+                              <AiFillCaretDown size={15} />
+                            </div>
+
+                          </div>
+                        </div>
+                      </a>
+                      <a href="#" >
+                        <div className=" text-sm items-center bg-slate-400 p-[8px]  ">
+                          <div className="flex  justify-between">
+                            <div className="flex items-center">
+
+                              <div className="mr-2">
+                                <IoIosLogOut />
+                              </div>
+                              <p>Đăng xuất</p>
+                            </div>
+                            <div className="flex items-center">
+
+                              <AiFillCaretDown size={15} />
+                            </div>
+
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+
+
+                  </div>
+
+
+                </li>
+              {/* <div><a href="">Đăng nhập</a></div> */}
+            </div>
+            
+              
             </div>
           </div>
         </div>
