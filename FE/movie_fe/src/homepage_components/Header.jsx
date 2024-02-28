@@ -15,8 +15,6 @@ import { AiFillBook } from "react-icons/ai";
 import { FaPerson } from "react-icons/fa6";
 import { IoIosLogOut } from "react-icons/io";
 import { MdOutlineHistory } from "react-icons/md";
-import { RxAvatar } from "react-icons/rx";
-import { CiSearch } from "react-icons/ci";
 export default function Header(props) {
   const settings = {
     className:

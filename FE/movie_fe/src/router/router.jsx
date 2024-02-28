@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import Login from '../component/Login';
 import Registration from '../component/Registration';
 import Signin from '../component/Signin';
-import HomePage from '../homepage/HomePage';
+import HomePage from '../pages/HomePage';
 import Profile from '../component/profile';
-
+import OpenMovie from '../pages/OpenMovie';
 function RouterLink() {
     return (
         <Router>
@@ -16,7 +16,7 @@ function RouterLink() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Registration />} />
                 <Route path="/signin" element={<Signin />} />
-
+                <Route path="/detail" element={<OpenMovie />} />
             </Routes>
         </Router>
     )
