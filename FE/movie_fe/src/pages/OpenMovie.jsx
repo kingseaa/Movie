@@ -4,11 +4,16 @@ import Video from "../detail_movie_components/Video";
 // import ButtonLight from "../detail_movie_components/ButtonLight";
 import SimilarMoviesForYou from "../detail_movie_components/SimilarMoviesForYou";
 import FooterDetail from "../detail_movie_components/FooterDetail";
+import propTypes from 'prop-types';
+
 
 const OpenMovie = () => {
 
+  
+
   return (
     <div className="w-full relative bg-black overflow-hidden flex flex-col items-end justify-start tracking-[normal]">
+     
       <section className="self-stretch flex flex-col items-center justify-start gap-[218px] bg-[url('/hero@3x.png')] bg-cover bg-no-repeat bg-[top] max-w-full shrink-0 mq750:gap-[218px] mq450:gap-[218px]">
         <HeaderDetail />
         <MovieInfo />
@@ -20,5 +25,9 @@ const OpenMovie = () => {
     </div>
   );
 };
+
+OpenMovie.propTypes = {
+  detai_id_film: propTypes.number.isRequired,
+}
 
 export default OpenMovie;

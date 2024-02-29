@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface GenreMovieServiceIplm {
 	public List<Object[]> findByGenreName(String genreName);
+	
 }

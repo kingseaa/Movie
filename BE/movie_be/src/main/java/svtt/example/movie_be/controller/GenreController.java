@@ -15,7 +15,7 @@ import svtt.example.movie_be.service.GenreService;
 @RequestMapping("/api")
 @Service
 public class GenreController {
-private final GenreService genreService;
+	private final GenreService genreService;
     
     public GenreController(GenreService genreService) {
         this.genreService = genreService;

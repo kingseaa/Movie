@@ -23,6 +23,7 @@ const SimilarMoviesForYou = () => {
             image="/image-1@2x.png"
             h4="Red Notice"
             propBorderRadius="16px"
+           
           />
           <Movie
             image="/image-2@2x.png"
