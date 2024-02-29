@@ -77,12 +77,10 @@ export default function Header(props) {
   const handlePlay = (titleMovie) => {
     console.log(titleMovie)
   }
-
   return (
     <>
       <div className="relative">
         
-        {/* <div id="overlay" className="fixed w-full inset-0 bg-slate-400 z-10 opacity-50"></div> */}
         <img
           src={wonderwomen}
           alt="wonderwomen"
@@ -289,7 +287,7 @@ export default function Header(props) {
           <Slider {...settings}>
             {props.movies.map((movie, index) => (
               <div
-                className="film_card text-slate-200   overflow-hidden"
+                className="film_card text-slate-200 overflow-hidden"
                 key={index}
               >
                 <div className=" bg-slate-600 mt-12 relative card-film rounded-md">

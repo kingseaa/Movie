@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function HomePage() {
   const [dataMovies, setDataMovies] = useState([]);
   const [dataGenre, setDataGenre] = useState([]);
-  const [dataGenreMovies, setDataGenreMovies] = useState([]);
+  const [, setDataGenreMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -39,7 +39,6 @@ export default function HomePage() {
     }
   };
 
-  console.log(dataMovies)
   const fetchDataGenre = async () => {
     try {
       // Fetch data from the API
@@ -107,7 +106,7 @@ export default function HomePage() {
   });
   
   const result = Object.values(mergedData);
-  console.log(result)
+  console.log(result) 
 
   const handleFilerGenreMovie = (newData) => {
     setDataMovies(newData);
