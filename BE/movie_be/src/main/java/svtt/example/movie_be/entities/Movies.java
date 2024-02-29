@@ -9,9 +9,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "movies")
 public class Movies {
-	
 	 	@Id
-	 	
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Integer movie_id;	    
 	    private String title;

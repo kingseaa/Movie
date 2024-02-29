@@ -15,6 +15,8 @@ import { AiFillBook } from "react-icons/ai";
 import { FaPerson } from "react-icons/fa6";
 import { IoIosLogOut } from "react-icons/io";
 import { MdOutlineHistory } from "react-icons/md";
+import {Link} from 'react-router-dom';
+import OpenMovie from "../pages/OpenMovie";
 export default function Header(props) {
   const settings = {
     className:
@@ -154,8 +156,8 @@ export default function Header(props) {
                   <div className="search-results mt-2 max-h-60 overflow-y-auto">
                     <ul className="bg-white shadow-md rounded-md">
                       {results.map((result) => (
-                        <li key={result.movie_id}>
-                          <a href={`/movie/${result.movie_id}`} className="block px-4 py-2 hover:bg-gray-100 text-black" >{result.title}</a>
+                        <li key={result.movie_id} >
+                          <Link element={<OpenMovie detai_id_film={result.movie_id} />} path={`/movie/${result.movie_id}`} className="block px-4 py-2 hover:bg-gray-100 text-black" >{result.title}</Link>
                         </li>
                       ))}
                     </ul>
@@ -358,5 +360,5 @@ Header.propTypes = {
       genre_name: PropTypes.string.isRequired,
     })
   ).isRequired,
-  handleFilerGenreMovie: PropTypes.func.isRequired
+  handleFilerGenreMovie: PropTypes.func.isRequired,
 };

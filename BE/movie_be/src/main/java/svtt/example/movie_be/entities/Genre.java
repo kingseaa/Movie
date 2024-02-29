@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 public class Genre {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Integer genre_id;
 	private String genre_name;
 	public Integer getGenre_id() {

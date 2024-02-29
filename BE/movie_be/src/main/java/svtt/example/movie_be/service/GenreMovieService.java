@@ -14,7 +14,7 @@ import svtt.example.movie_be.repository.GenreMovieRepository;
 public class GenreMovieService {
     private final GenreMovieRepository genreMovieRepository;
 
-    @Autowired
+    
     public GenreMovieService(GenreMovieRepository genreMovieRepository) {
         this.genreMovieRepository = genreMovieRepository;
     }
