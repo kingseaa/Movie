@@ -24,7 +24,6 @@ public interface GenreMovieRepository extends JpaRepository<GenreMovie,Integer> 
 			+ " INNER JOIN movies AS M1 on M1.movie_id = GM1.movie_id "
 			+ " WHERE G1.genre_name = ?1 ) "
 			+ " ORDER BY M.movie_id; "
-			
 			,nativeQuery = true)
 	List<Object[]> findMoviesByGenre(String genreName);
 	

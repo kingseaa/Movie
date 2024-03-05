@@ -1,4 +1,5 @@
-const Video = () => {
+const Video = (props) => {
+  console.log(props.Movie)
   return (
     <section className="self-stretch flex flex-row items-start justify-start pt-0 px-0 pb-[30px] box-border max-w-full shrink-0 text-left text-lg text-white font-semibold-medium">
       <div className="flex-1 flex flex-col items-start justify-start pt-0 px-[75px] pb-10 box-border gap-[24px] max-w-full mq750:pl-[37px] mq750:pr-[37px] mq750:box-border">
@@ -195,23 +196,28 @@ const Video = () => {
           </h3>
           <div className="w-[1365px] flex flex-row flex-wrap items-center justify-start [row-gap:20px] max-w-[106%] shrink-0 text-base text-grayscale-grayscale-10">
             <div className="h-[47px] flex-1 flex flex-row items-start justify-start gap-[24px] min-w-[846px] max-w-full mq1050:min-w-full">
-              <div className="flex flex-row items-center justify-start gap-[12px]">
-                <img
-                  className="h-12 w-12 relative rounded-[50%] object-contain"
-                  loading="eager"
-                  alt=""
-                  src="/bg@2x.png"
-                />
-                <div className="flex flex-col items-start justify-start">
-                  <div className="relative tracking-[0.01em] leading-[24px] font-semibold">
-                    Pedro Pascal
-                  </div>
-                  <div className="relative text-xs tracking-[0.01em] leading-[20px] font-medium text-grayscale-grayscale-60">
-                    Joel Miller
-                  </div>
+            
+              {props.Movie.map((movie) => (
+                <div className="flex flex-row items-center justify-start gap-[12px]" key={movie.movie_id}>
+                  {/* {console.log(movie.actor)} */}
+                  {movie.actors.map((actor) => (
+                    <div key={actor.actor_id} className="flex items-center gap-2">
+                      <img
+                        className="h-12 w-12 rounded-full object-cover shadow-lg"
+                        loading="eager"
+                        alt={actor.actor_name}
+                        src={actor.actor_image} />
+                      <div className="flex flex-col items-start justify-start">
+                        <div className="font-semibold text-lg">
+                          {actor.actor_name}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
                 </div>
-              </div>
-              <div className="flex flex-row items-center justify-start gap-[12px]">
+              ))}
+              {/* <div className="flex flex-row items-center justify-start gap-[12px]">
                 <img
                   className="h-12 w-12 relative rounded-[50%] object-contain"
                   alt=""
@@ -300,7 +306,7 @@ const Video = () => {
                     Frank
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="h-12 w-[167px] [background:linear-gradient(269.96deg,_#0d0c0f,_rgba(13,_12,_15,_0),_#0d0c0f)] flex flex-row items-center justify-end py-[72px] px-5 box-border z-[1] ml-[-100px] mq1050:ml-0">
               <div className="flex flex-row items-center justify-start">
