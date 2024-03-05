@@ -10,9 +10,9 @@ public interface MovieServiceIplm {
 
 	public List<Movies> getFirst20Movies();
 
-	List<Movies> findByTitleContaining(String title);
+	public List<Movies> findByTitleContaining(String title);
 	
-	
+//	public List<Movies> getMovieOverMovieId(Integer movie_id);
 
     
 }

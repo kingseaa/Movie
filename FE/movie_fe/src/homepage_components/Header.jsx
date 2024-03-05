@@ -157,7 +157,7 @@ export default function Header(props) {
                     <ul className="bg-white shadow-md rounded-md">
                       {results.map((result) => (
                         <li key={result.movie_id} >
-                          <Link element={<OpenMovie detai_id_film={result.movie_id} />} path={`/movie/${result.movie_id}`} className="block px-4 py-2 hover:bg-gray-100 text-black" >{result.title}</Link>
+                          <Link  to={`/homepage/detail/${result.movie_id}`} className="block px-4 py-2 hover:bg-gray-100 text-black" >{result.title}</Link>
                         </li>
                       ))}
                     </ul>

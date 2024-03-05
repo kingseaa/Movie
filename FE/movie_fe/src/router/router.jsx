@@ -13,10 +13,11 @@ function RouterLink() {
             <Routes>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/homepage" element={<HomePage />} />
+                <Route path="/homepage/detail/:movieID" element={<OpenMovie />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Registration />} />
                 <Route path="/signin" element={<Signin />} />
-                <Route path="/detail" element={<OpenMovie />} />
+                
             </Routes>
         </Router>
     )

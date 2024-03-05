@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import svtt.example.movie_be.entities.Movies;
 import svtt.example.movie_be.security.ApiResponse;
@@ -40,9 +42,17 @@ public class MovieController {
     @GetMapping("/movies")
     public List<Map<String, Object>> getAllMovies() {
     	List<Map<String, Object>> movies = movieService.getAllMovies();
-        return movies;
-                  
+        return movies;       
     }
+    
+//    @PostMapping("/movies")
+//    public ResponseEntity<List<Movies>> getMovieByMovieId(@RequestBody Movies requestbody) {
+//    	System.out.println(requestbody.getMovie_id());
+//    	int movie_id = requestbody.getMovie_id();
+//    	List<Movies> movies = movieService.getMovieOverMovieId(movie_id);
+//    	return ResponseEntity.ok(movies);
+//        
+//    }
     
     @GetMapping("/limited")
     public ResponseEntity<List<Movies>> getFirst20Movies() {

@@ -59,4 +59,8 @@ public class MovieService implements MovieServiceIplm {
         return movieRepository.findFirst20By();
     }
 
+//	public List<Movies> getMovieOverMovieId(Integer movie_id) {
+//		return movieRepository.findMovieBymovie_id(movie_id);
+//	}
+
 }

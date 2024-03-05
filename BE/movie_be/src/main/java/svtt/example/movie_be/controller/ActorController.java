@@ -26,8 +26,8 @@ public class ActorController {
     
     @PostMapping("/actor")
     public ResponseEntity<List<Map<String, Object>>> getAllGenre(@RequestBody Map<String, Integer> requestbody) {
-    	int actor_id = requestbody.get("id");
-    	List<Map<String, Object>> genres = actorService.getActorsMovie(actor_id);
+    	int movie_id = requestbody.get("movie_id");
+    	List<Map<String, Object>> genres = actorService.getActorsMovie(movie_id);
         return ResponseEntity.ok(genres);
     }
 }
