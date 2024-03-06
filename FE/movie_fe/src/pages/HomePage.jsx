@@ -1,7 +1,7 @@
 import Header from "../homepage_components/Header";
 import Section from "../homepage_components/Section";
 import Footer from "../homepage_components/Footer";
-import News from "../homepage_components/News";
+// import News from "../homepage_components/News";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
@@ -122,7 +122,7 @@ export default function HomePage() {
 
       <Section movies={result} />
 
-      <News />
+      {/* <News /> */}
       <Footer />
     </div>
   );
