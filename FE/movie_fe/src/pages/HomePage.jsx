@@ -1,7 +1,7 @@
 import Header from "../homepage_components/Header";
 import Section from "../homepage_components/Section";
 import Footer from "../homepage_components/Footer";
-import News from "../homepage_components/News";
+// import News from "../homepage_components/News";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
@@ -96,10 +96,10 @@ export default function HomePage() {
 
   const mergedData = {};
   dataMovies.forEach(item => {
-    const { movie_id, title, poster, original_language,release_date, genre_name,duration,vote_average,descriptions} = item;
-    const key = `${movie_id}-${title}-${poster}-${original_language}-${release_date}-${duration}-${descriptions}`;
+    const { movie_id, title, poster, original_language,release_date, genre_name,duration,vote_average,descriptions, url} = item;
+    const key = `${movie_id}-${title}-${poster}-${original_language}-${release_date}-${duration}-${descriptions}-${url}`;
     if (!mergedData[key]) {
-      mergedData[key] = { movie_id, title,poster, original_language,release_date, genres: [genre_name],duration,vote_average,descriptions};
+      mergedData[key] = { movie_id, title,poster, original_language,release_date, genres: [genre_name],duration,vote_average,descriptions, url};
     } else {
       mergedData[key].genres.push(genre_name);
     }
@@ -122,7 +122,7 @@ export default function HomePage() {
 
       <Section movies={result} />
 
-      <News />
+      {/* <News /> */}
       <Footer />
     </div>
   );

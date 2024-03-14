@@ -29,7 +29,7 @@ const OpenMovie = () => {
         })
         const data = await response.json();
         setMovie(data)
-        console.log(data)
+        
 
 
       } catch (error) {
@@ -39,9 +39,9 @@ const OpenMovie = () => {
     }
 
     handleActorMovie();
-  }, []);
+  }, [movieId]);
 
-  console.log(Movie);
+ 
   // const mergedData = {};
   // Movie.forEach(item => {
   //   const { movie_id, title, actor_id, actor_name, poster, original_language,release_date,duration,vote_count,vote_average,descriptions} = item;
@@ -54,8 +54,8 @@ const OpenMovie = () => {
   // });
   const mergedData = {};
 Movie.forEach(item => {
-  const { movie_id, title, actor_id, actor_name, poster, original_language,release_date,duration,vote_count,vote_average,descriptions,actor_image} = item;
-  const key = `${movie_id}-${title}-${poster}-${original_language}-${release_date}-${duration}-${vote_count}-${vote_average}-${descriptions}`;
+  const { movie_id, title, actor_id, actor_name, poster, original_language,release_date,duration,vote_count,vote_average,descriptions,actor_image, url} = item;
+  const key = `${movie_id}-${title}-${poster}-${original_language}-${release_date}-${duration}-${vote_count}-${vote_average}-${descriptions}-${url}`;
   if (!mergedData[key]) {
     mergedData[key] = { 
       movie_id, 
@@ -67,6 +67,7 @@ Movie.forEach(item => {
       vote_count,
       vote_average,
       descriptions,
+      url,
       actors: [{ actor_id, actor_name, actor_image }] // Đưa tất cả các tên diễn viên vào một mảng
     };
   } else {
@@ -90,6 +91,7 @@ const result = Object.values(mergedData);
 
   return (
     <div className="w-full relative bg-black overflow-hidden flex flex-col items-end justify-start tracking-[normal]">
+      
       {result.map((movie) => (
       // <section key={movie.movie_id} className="self-stretch flex flex-col items-center justify-start gap-[218px] bg-[url('/hero@3x.png')] bg-cover bg-no-repeat bg-[top] max-w-full shrink-0 mq750:gap-[218px] mq450:gap-[218px]">
       <section key={movie.movie_id} className="self-stretch flex flex-col items-center justify-start gap-[218px]" style={{ backgroundImage: `url(${movie.poster})`, backgroundRepeat: 'no-repeat' ,backgroundSize: 'contain', backgroundPosition: 'center' }}>

@@ -1,11 +1,11 @@
 function Footer() {
   return (
     <>
-      <footer className="mb-4">
-        <div className="max-w-screen-lg m-auto mt-14 mb-4">
+      <footer className="">
+        <div className="max-w-screen-lg m-auto mt-14 ">
           <div className="grid-cols-4 grid gap-2 mb-8">
             <div className="w-full">
-              <h3 className="font-semibold mb-4 ">Profile</h3>
+              <h3 className="font-semibold  ">Profile</h3>
               <ul className="text-xs">
                 <li className="mt-2">FAQ’s</li>
                 <li className="mt-2">Pricing plans</li>
@@ -14,7 +14,7 @@ function Footer() {
               </ul>
             </div>
             <div className="w-full">
-              <h3 className="font-semibold mb-4">Recent Posts</h3>
+              <h3 className="font-semibold ">Recent Posts</h3>
               <ul className="text-xs">
                 <li className="mt-2">Touch of uniqueness</li>
                 <li className="mt-2">Offices you won’t forget</li>

@@ -1,49 +1,84 @@
-const MovieInfo = (props) => {
-  console.log(props.Movie)
+import propTypes from "prop-types";
+import { useState } from "react";
 
+const MovieInfo = (props) => {
+  const [urlWireFrame, setUrlWireFrame] = useState("");
+
+  const handlePlayFilm = (url) => {
+    console.log(url.length);
+    setUrlWireFrame(url);
+  };
+
+  const handleOutSidePopup = () => {
+    console.log("Outside");
+    setUrlWireFrame("");
+
+  };
+
+  console.log(urlWireFrame);
   return (
     <>
-
-      <div className="self-stretch flex flex-row items-end justify-between py-16 px-[75px] box-border gap-[20px] max-w-full text-left text-13xl text-white font-rubik lg:flex-wrap lg:pl-[37px] lg:pr-[37px] lg:box-border">
-
+      <div className=" self-stretch flex flex-row items-end justify-between py-16 px-[75px] box-border gap-[20px] max-w-full text-left text-13xl text-white font-rubik lg:flex-wrap lg:pl-[37px] lg:pr-[37px] lg:box-border">
         <div className="w-[506px] flex flex-col items-start justify-start gap-[24px] min-w-[506px] max-w-full lg:flex-1 mq750:min-w-full">
-          {props.Movie.map((movie) => (
-            <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-              <h1 className="m-0 self-stretch relative text-inherit tracking-[0.01em] leading-[40px] font-bold font-inherit mq1050:text-7xl mq1050:leading-[32px] mq450:text-lgi mq450:leading-[24px] text-2xl md:text-3xl lg:text-3xl">
-                {movie.title}
-              </h1>
-              <div className="self-stretch relative text-lg tracking-[0.01em] leading-[22px] text-grayscale-grayscale-60">
-                Release_date: {movie.release_date} • Rate: {movie.vote_average} • Vote: {movie.vote_count}
+          {props.Movie.map((movie, index) => (
+            <div key={index}>
+              {urlWireFrame.length > 0 ? (
+                <div
+                  className="popup fixed inset-0 bg-neutral-500/50 z-40 flex justify-center "
+                  onClick={handleOutSidePopup}
+                >
+                  <div className="popup_content  mt-14">
+                    <iframe
+                      src={urlWireFrame}
+                      height={"500"}
+                      width={"800"}
+                    ></iframe>
+                  </div>
+                </div>
+              ) : (
+                <div></div>
+              )}
+              <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
+                <h1 className="m-0 self-stretch relative text-inherit tracking-[0.01em] leading-[40px] font-bold font-inherit mq1050:text-7xl mq1050:leading-[32px] mq450:text-lgi mq450:leading-[24px] text-2xl md:text-3xl lg:text-3xl">
+                  {movie.title}
+                </h1>
+                <div className="self-stretch relative text-lg tracking-[0.01em] leading-[22px] text-grayscale-grayscale-60">
+                  Release_date: {movie.release_date} • Rate:{" "}
+                  {movie.vote_average} • Vote: {movie.vote_count}
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-start gap-[24px] max-w-full text-sm text-grayscale-grayscale-10 font-semibold-medium mq750:flex-wrap">
+                <div className="flex flex-row items-center justify-center">
+                  <div
+                    onClick={() => handlePlayFilm(movie.url)}
+                    className="h-[46px]  rounded-3xs bg-green flex flex-row items-center justify-center py-3 px-6 box-border gap-[9px] whitespace-nowrap"
+                  >
+                    <img
+                      className="h-6 w-6 relative overflow-hidden shrink-0"
+                      loading="eager"
+                      alt=""
+                      src="/iconsolidplay.svg"
+                    />
+                    <b className="relative tracking-[0.01em] leading-[22px]">
+                      Continue Watching
+                    </b>
+                  </div>
+                </div>
+                <button className="cursor-pointer [border:none] p-0 bg-[transparent] flex flex-row items-start justify-start">
+                  <div className="h-12 rounded-3xs box-border flex flex-row items-start justify-start py-3 pr-[21px] pl-6 gap-[10px] whitespace-nowrap border-[1px] border-solid border-white">
+                    <img
+                      className="h-6 w-6 relative overflow-hidden shrink-0"
+                      alt=""
+                      src="/iconoutlinebookmark.svg"
+                    />
+                    <b className="relative text-sm tracking-[0.01em] leading-[22px] font-semibold-medium text-white text-left">
+                      Add Watchlist
+                    </b>
+                  </div>
+                </button>
               </div>
             </div>
           ))}
-          <div className="flex flex-row items-center justify-start gap-[24px] max-w-full text-sm text-grayscale-grayscale-10 font-semibold-medium mq750:flex-wrap">
-            <div className="flex flex-row items-center justify-center">
-              <div className="h-[46px] rounded-3xs bg-green flex flex-row items-center justify-center py-3 px-6 box-border gap-[9px] whitespace-nowrap">
-                <img
-                  className="h-6 w-6 relative overflow-hidden shrink-0"
-                  loading="eager"
-                  alt=""
-                  src="/iconsolidplay.svg"
-                />
-                <b className="relative tracking-[0.01em] leading-[22px]">
-                  Continue Watching
-                </b>
-              </div>
-            </div>
-            <button className="cursor-pointer [border:none] p-0 bg-[transparent] flex flex-row items-start justify-start">
-              <div className="h-12 rounded-3xs box-border flex flex-row items-start justify-start py-3 pr-[21px] pl-6 gap-[10px] whitespace-nowrap border-[1px] border-solid border-white">
-                <img
-                  className="h-6 w-6 relative overflow-hidden shrink-0"
-                  alt=""
-                  src="/iconoutlinebookmark.svg"
-                />
-                <b className="relative text-sm tracking-[0.01em] leading-[22px] font-semibold-medium text-white text-left">
-                  Add Watchlist
-                </b>
-              </div>
-            </button>
-          </div>
         </div>
 
         <div className="flex flex-row items-center justify-start gap-[24px] max-w-full mq750:flex-wrap">
@@ -85,10 +120,12 @@ const MovieInfo = (props) => {
           </button>
         </div>
       </div>
-
     </>
   );
+};
 
+MovieInfo.propTypes = {
+  Movie: propTypes.array.isRequired,
 };
 
 export default MovieInfo;
