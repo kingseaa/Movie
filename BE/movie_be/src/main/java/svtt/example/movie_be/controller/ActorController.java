@@ -34,6 +34,7 @@ public class ActorController {
     	
     	int movie_id = requestbody.getMovie_id();
     	
+    	
     	List<Map<String, Object>> genres = actorService.getActorsMovie(movie_id);
     		
     	if (genres.size() <= 0) {

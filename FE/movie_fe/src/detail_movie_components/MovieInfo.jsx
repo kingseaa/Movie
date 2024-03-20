@@ -15,7 +15,6 @@ const MovieInfo = (props) => {
 
   };
 
-  console.log(urlWireFrame);
   return (
     <>
       <div className=" self-stretch flex flex-row items-end justify-between py-16 px-[75px] box-border gap-[20px] max-w-full text-left text-13xl text-white font-rubik lg:flex-wrap lg:pl-[37px] lg:pr-[37px] lg:box-border">

@@ -17,6 +17,9 @@ public class Movies {
 	    private String original_language;
 	    private String release_date;
 	    private Double vote_average;
+	   
+	    
+		
 		public Integer getMovie_id() {
 			return movie_id;
 		}

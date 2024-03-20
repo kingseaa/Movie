@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 const OpenMovie = () => {
   const params = useParams();
   const [Movie, setMovie] = useState([]);
+  const [SuggestMovie, setSuggestMovie] = useState([]);
 
   const movieId = params.movieID;
 
@@ -28,7 +29,7 @@ const OpenMovie = () => {
           body: JSON.stringify({ movie_id: movieId })
         })
         const data = await response.json();
-        setMovie(data)
+        setMovie(data.data)
         
 
 
@@ -41,19 +42,31 @@ const OpenMovie = () => {
     handleActorMovie();
   }, [movieId]);
 
- 
-  // const mergedData = {};
-  // Movie.forEach(item => {
-  //   const { movie_id, title, actor_id, actor_name, poster, original_language,release_date,duration,vote_count,vote_average,descriptions} = item;
-  //   const key = `${movie_id}-${title}-${actor_id}-${poster}-${original_language}-${release_date}-${duration}-${vote_count}-${vote_average}-${descriptions}`;
-  //   if (!mergedData[key]) {
-  //     mergedData[key] = { movie: [actor_name],movie_id, title,  actor_name, poster, original_language,release_date,duration,vote_count,vote_average,descriptions};
-  //   } else {
-  //     mergedData[key].movie.push(movie_id);
-  //   }
-  // });
+  useEffect(() => {
+    const handleSuggestMovie = async () => {
+      try {
+        const response = await fetch('http://localhost:8088/api/suggestmovie', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ movie_id: movieId })
+        })
+        const data = await response.json();
+        setMovie(data.data)
+        
+
+
+      } catch (error) {
+        setMovie([])
+        console.error('Error fetching movies:', error);
+      }
+    }
+    handleSuggestMovie();
+  }, [SuggestMovie])
+  
   const mergedData = {};
-Movie.forEach(item => {
+  Movie.forEach(item => {
   const { movie_id, title, actor_id, actor_name, poster, original_language,release_date,duration,vote_count,vote_average,descriptions,actor_image, url} = item;
   const key = `${movie_id}-${title}-${poster}-${original_language}-${release_date}-${duration}-${vote_count}-${vote_average}-${descriptions}-${url}`;
   if (!mergedData[key]) {
