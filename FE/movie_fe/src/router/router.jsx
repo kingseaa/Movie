@@ -5,7 +5,7 @@ import Login from '../component/Login';
 import Registration from '../component/Registration';
 import Signin from '../component/Signin';
 import HomePage from '../pages/HomePage';
-import Profile from '../component/Profile';
+import Profile from '../component/profile';
 import OpenMovie from '../pages/OpenMovie';
 function RouterLink() {
     return (
