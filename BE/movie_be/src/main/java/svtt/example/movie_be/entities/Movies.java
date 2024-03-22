@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "movies")
 public class Movies {
-	 	@Id
+	   @Id
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Integer movie_id;	    
 	    private String title;
@@ -17,6 +17,9 @@ public class Movies {
 	    private String original_language;
 	    private String release_date;
 	    private Double vote_average;
+	   
+	    
+		
 		public Integer getMovie_id() {
 			return movie_id;
 		}

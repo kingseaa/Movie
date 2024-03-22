@@ -1,12 +1,9 @@
 import PropTypes from "prop-types";
 import { IoStar } from "react-icons/io5";
-import { FaPlay } from "react-icons/fa";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
 export default function Section(props) {
 
-  const handlePlay = (titleMovie) => {
-    console.log(titleMovie)
-  }
+
   return (
     <div className="max-w-screen-xl m-auto">
       {/* Current playing */}
@@ -27,9 +24,9 @@ export default function Section(props) {
                 <div className="detail-content absolute bottom-0  w-full">
                   <div className="button flex justify-end  mb-2.5 mr-2.5  ">
                     {" "}
-                    <div className="p-3 rounded-full bg-green-500 mr-2 cursor-pointer" onClick={() => handlePlay(movie.title)}>
+                    {/* <div className="p-3 rounded-full bg-green-500 mr-2 cursor-pointer" onClick={() => handlePlay(movie.title)}>
                       <FaPlay color="white" />
-                    </div>
+                    </div> */}
                     <div className="p-3 rounded-full bg-slate-200">
                       <MdOutlineBookmarkAdd color="black" />
                     </div>
