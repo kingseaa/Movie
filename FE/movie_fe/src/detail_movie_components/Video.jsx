@@ -1,5 +1,4 @@
 const Video = (props) => {
-  console.log(props.Movie)
   return (
     <section className="self-stretch flex flex-row items-start justify-start pt-0 px-0 pb-[30px] box-border max-w-full shrink-0 text-left text-lg text-white font-semibold-medium">
       <div className="flex-1 flex flex-col items-start justify-start pt-0 px-[75px] pb-10 box-border gap-[24px] max-w-full mq750:pl-[37px] mq750:pr-[37px] mq750:box-border">

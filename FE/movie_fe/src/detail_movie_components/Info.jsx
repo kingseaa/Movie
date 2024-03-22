@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 const Info = ({ h4, propBackgroundImage }) => {
   const infoStyle = useMemo(() => {
     return {
@@ -45,9 +45,9 @@ const Info = ({ h4, propBackgroundImage }) => {
   );
 };
 
-Info.PropTypes = {
-  h4: PropTypes.string.isRequired,
-  propBackgroundImage: PropTypes.string.isRequired
+Info.propTypes = {
+  h4: propTypes.string.isRequired,
+  propBackgroundImage: propTypes.string.isRequired
 }
 
 export default Info;

@@ -15,6 +15,7 @@ import svtt.example.movie_be.entities.Movies;
 @Repository
 
 public interface GenreMovieRepository extends JpaRepository<GenreMovie,Integer> {
+	
 	@Query(value = "SELECT M.*, G.genre_name FROM genre AS G "  +
 			" INNER JOIN genre_movie AS GM on G.genre_id = GM.genre_id" +
 			" INNER JOIN movies AS M on M.movie_id = GM.movie_id " +
@@ -35,6 +36,8 @@ public interface GenreMovieRepository extends JpaRepository<GenreMovie,Integer> 
 			" ORDER BY M.movie_id;"
 			,nativeQuery = true)
 	List<Object[]> getMovies();
+	
+	
 	
 	
 }

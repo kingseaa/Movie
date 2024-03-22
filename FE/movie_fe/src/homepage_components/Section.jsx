@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
 import { IoStar } from "react-icons/io5";
-import { FaPlay } from "react-icons/fa";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
 import {Link} from 'react-router-dom';
 export default function Section(props) {
 
-  const handlePlay = (titleMovie) => {
-    console.log(titleMovie)
-  }
+
   return (
     <div className="max-w-screen-xl m-auto">
       {/* Current playing */}

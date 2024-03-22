@@ -16,7 +16,6 @@ import { FaPerson } from "react-icons/fa6";
 import { IoIosLogOut } from "react-icons/io";
 import { MdOutlineHistory } from "react-icons/md";
 import {Link} from 'react-router-dom';
-import OpenMovie from "../pages/OpenMovie";
 export default function Header(props) {
   const settings = {
     className:
@@ -65,20 +64,18 @@ export default function Header(props) {
       headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify({ genreName: genreName })
+    body: JSON.stringify({ genre_name: genreName })
     })
-    const data = await response.json();
+    const movies = await response.json();
     // console.log(data)
-    props.handleFilerGenreMovie(data.slice(0, 20))
+    props.handleFilerGenreMovie(movies.data.slice(0, 20))
   
    } catch (error) {
     console.error('Error fetching movies:', error);
    }
   }
 
-  const handlePlay = (titleMovie) => {
-    console.log(titleMovie)
-  }
+ 
   return (
     <>
       <div className="relative">

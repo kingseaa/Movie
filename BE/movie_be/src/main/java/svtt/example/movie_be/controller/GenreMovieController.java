@@ -1,9 +1,12 @@
 package svtt.example.movie_be.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import svtt.example.movie_be.entities.Genre;
 import svtt.example.movie_be.entities.GenreMovie;
+import svtt.example.movie_be.security.ApiResponse;
 import svtt.example.movie_be.service.GenreMovieService;
 
 @RestController
@@ -33,11 +38,19 @@ public class GenreMovieController {
     }
     
     @PostMapping("/findgenre")
-    public List<Map<String, Object>> getMoviesByGenre(@RequestBody Map<String, String> requestBody) {
-    	System.out.println("Received data from React: " + requestBody.get("genreName"));
-    	String genreName = requestBody.get("genreName");
-    	System.out.println(genreMovieService.getMoviesByGenre(genreName));
-        return genreMovieService.getMoviesByGenre(genreName);
+    public ResponseEntity<ApiResponse> getMoviesByGenre(@RequestBody Genre requestBody) {
+    	System.out.println("Received data from React: " + requestBody.getGenre_name());
+    	
+    	String genre_name = requestBody.getGenre_name();
+    	
+    		if (genre_name == "") {
+    			ApiResponse response = new ApiResponse("Không thể phân loại phim", new ArrayList<Map<String, Object>>());
+    			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    		}
+    		
+    	List<Map<String, Object>> genreMovies = genreMovieService.getMoviesByGenre(genre_name);
+     	ApiResponse response = new ApiResponse("Thành công", genreMovies);
+        return ResponseEntity.ok(response);
     }
     
 

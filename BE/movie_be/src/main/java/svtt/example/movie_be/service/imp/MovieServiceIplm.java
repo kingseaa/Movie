@@ -12,6 +12,8 @@ public interface MovieServiceIplm {
 
 	public List<Movies> findByTitleContaining(String title);
 	
+	public Integer[] fetchMovieIdsFromPythonServer(Integer requestId);
+	
 //	public List<Movies> getMovieOverMovieId(Integer movie_id);
 
     
