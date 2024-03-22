@@ -16,7 +16,7 @@ import svtt.example.movie_be.entities.Movies;
 @Repository
 public interface MoviesRepository extends JpaRepository<Movies, Integer> {
 
-    // You can define custom query methods here if needed
+    
 	List<Movies> findByTitleContaining(String title);
 
 //	List<Movies> findMovieByMovieId(Integer movie_id);

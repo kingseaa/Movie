@@ -290,6 +290,7 @@ export default function Header(props) {
                 key={index}
               >
                 <div className=" bg-slate-600 mt-12 relative card-film rounded-md">
+                <Link  to={`/homepage/detail/${movie.movie_id}`}  >
                 <img
                   src={movie.poster}
                   alt={movie.title}
@@ -331,6 +332,7 @@ export default function Header(props) {
                     </div>
                   </div>
                 </div>
+                </Link>
               </div>
               </div>
             ))}

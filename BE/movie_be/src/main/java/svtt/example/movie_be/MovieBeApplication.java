@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
+
 @ComponentScan(basePackages = {"svtt.example.movie_be",
 		"controller", 
 		"repository", 
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 		"dto",
 		"service.imp", 
 		"security"}) 
+
 public class MovieBeApplication {
 
 	public static void main(String[] args) {

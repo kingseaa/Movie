@@ -9,8 +9,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "movies")
 public class Movies {
+
 	   @Id
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	    private Integer movie_id;	    
 	    private String title;
 	    private String poster;
@@ -55,6 +57,10 @@ public class Movies {
 		}
 		public void setVote_average(Double vote_average) {
 			this.vote_average = vote_average;
+		}
+		public Integer getId() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	    
 	    
