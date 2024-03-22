@@ -70,7 +70,7 @@ public class MovieController {
     }
     
     
-    @PostMapping("/create")
+    @PostMapping("/createMovie")
     public ResponseEntity<?> createMovie(@RequestBody MovieDTO movieDTO) {
 //    	ApiResponse response = new ApiResponse("Tạo không thành công", new ArrayList<>());
     	
@@ -79,9 +79,27 @@ public class MovieController {
     		return ResponseEntity.status(HttpStatus.OK).body("Create movie successfully!");
     	} else {
     		return ResponseEntity.status(300).body("Movie already exist");
-    	}
+    	} 	
+    }
+    @PostMapping("/deleteMovie")
+    public ResponseEntity<?> deleteMovie(@RequestBody MovieDTO movieDTO) {
+//    	ApiResponse response = new ApiResponse("Tạo không thành công", new ArrayList<>());
     	
-    	
+    	if(movieService.isMovieExists_id(movieDTO.getMovie_id()) > 0) {
+    		movieService.deleteMovie(movieDTO.getMovie_id());
+    		return ResponseEntity.status(HttpStatus.OK).body("Updatae movie successfully!");
+    	} else {
+    		return ResponseEntity.status(300).body("Movie haven't already exist");
+    	} 	
+    }
+    @PostMapping("/updateMovie")
+    public ResponseEntity<?> updateMovie(@RequestBody MovieDTO movieDTO) {
+    	if(movieService.isMovieExists_id(movieDTO.getMovie_id()) > 0) {
+    		movieService.updateMovie(movieDTO.getMovie_id(),movieDTO.getPremiumAccess(), movieDTO.getTitle(), movieDTO.getDescriptions(), movieDTO.getRelease_date(), movieDTO.getDuration(), movieDTO.getOriginal_language(), movieDTO.getStatuses(), movieDTO.getPoster(), movieDTO.getUrl());
+    		return ResponseEntity.status(HttpStatus.OK).body("update movie successfully!");
+    	} else {
+    		return ResponseEntity.status(300).body("Movie haven't already exist");
+    	} 		
     }
     
 

@@ -114,16 +114,24 @@ public class MovieService implements MovieServiceIplm {
         return movieRepository.existMovie(title);
     }
 
-    
+    public Integer isMovieExists_id(int movie_id) {
+        return movieRepository.existMovie_id(movie_id);
+    }
     public void createMovie(String premiumAccess, String title, String descriptions, String releaseDate,
             int duration, String originalLanguage, String statuses, String poster, String url) {
 			
     		
     	movieRepository.createMovie(premiumAccess, title, descriptions, releaseDate, duration,
-			originalLanguage, statuses, poster, url)
-			
-			;
-}
+			originalLanguage, statuses, poster, url);
+    }
+    public void deleteMovie(int movie_id) {
+    	movieRepository.deleteById(movie_id);
+    }
+    public void updateMovie(int movie_id,String premiumAccess, String title, String descriptions, String releaseDate,
+        int duration, String originalLanguage, String statuses, String poster, String url) {
+    	movieRepository.updateMovie(movie_id,premiumAccess, title, descriptions, releaseDate, duration,
+    			originalLanguage, statuses, poster, url);
+    }
    
 
 }

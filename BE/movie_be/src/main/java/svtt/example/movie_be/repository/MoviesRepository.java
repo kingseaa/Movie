@@ -44,7 +44,17 @@ public interface MoviesRepository extends JpaRepository<Movies, Integer> {
     @Query(value = "SELECT CASE WHEN COUNT(m.title) > 0 THEN 1 ELSE 0 END FROM movies AS m WHERE m.title = :title", nativeQuery = true)
     int existMovie(@Param("title") String title);
 	
+	@Transactional
+    @Query(value = "SELECT CASE WHEN COUNT(m.movie_id) > 0 THEN 1 ELSE 0 END FROM movies AS m WHERE m.movie_id = :movie_id", nativeQuery = true)
+    int existMovie_id(@Param("movie_id") int movie_id);
 	
+	public void deleteById(Integer movie_id);
+//	@Query(value = "delete from movies where movie_id = :movie_id", nativeQuery = true)
+//	void deleteMovie(@Param("movie_id") int movie_id);
 	
+	@Transactional
+	@Modifying
+	@Query(value = "update movies set premiumAccess = :premiumAccess, title = :title, descriptions = :descriptions, release_date = :release_date, duration = :duration, original_language = :original_language, statuses = :statuses, poster = :poster, url = :url where movie_id = :movie_id", nativeQuery = true)
+	void updateMovie(@Param("movie_id") int movie_id, @Param("premiumAccess") String premiumAccess, @Param("title") String title, @Param("descriptions") String descriptions, @Param("release_date") String release_date, @Param("duration") int duration, @Param("original_language") String original_language, @Param("statuses") String statuses, @Param("poster") String poster, @Param("url") String url);
 }
 

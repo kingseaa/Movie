@@ -1,6 +1,7 @@
 package svtt.example.movie_be.dto;
 
 public class MovieDTO {
+	private Integer movie_id; 
 	private String premiumAccess;
     private String title;
     private String descriptions;
@@ -10,6 +11,12 @@ public class MovieDTO {
     private String statuses;
     private String poster;
     private String url;
+	public Integer getMovie_id() {
+		return movie_id;
+	}
+	public void setMovie_id(Integer movie_id) {
+		this.movie_id = movie_id;
+	}
 	public String getPremiumAccess() {
 		return premiumAccess;
 	}
