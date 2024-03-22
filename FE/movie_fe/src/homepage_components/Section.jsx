@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { IoStar } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
+import {Link} from 'react-router-dom';
 export default function Section(props) {
 
   const handlePlay = (titleMovie) => {
@@ -15,21 +16,28 @@ export default function Section(props) {
       </div>
       <div className="grid grid-cols-4 gap-4">
         {props.movies.map((movie, index) => (
+          
           <div key={index}>
+            
           <div  className="w-full ">
+          
             <div className="relative">
+            
               <div className="w-72 h-96 bg-slate-600 mt-12 relative card-film  ">
+              <Link  to={`/homepage/detail/${movie.movie_id}`}  >
                 <img
-                  src={movie.poster}
+                  src={movie.poster} 
                   alt={movie.title}
                   className="h-full w-full"
                 />
+                
                 <div className="detail-content absolute bottom-0  w-full">
+                
                   <div className="button flex justify-end  mb-2.5 mr-2.5  ">
                     {" "}
-                    <div className="p-3 rounded-full bg-green-500 mr-2 cursor-pointer" onClick={() => handlePlay(movie.title)}>
+                    {/* <div className="p-3 rounded-full bg-green-500 mr-2 cursor-pointer" onClick={() => handlePlay(movie.title)}>
                       <FaPlay color="white" />
-                    </div>
+                    </div> */}
                     <div className="p-3 rounded-full bg-slate-200">
                       <MdOutlineBookmarkAdd color="black" />
                     </div>
@@ -60,10 +68,15 @@ export default function Section(props) {
                      
                     </div>
                   </div>
+                  
                 </div>
+                </Link>
               </div>
+              
             </div>
+            
           </div>
+          
           <h2 className="text-white">{movie.title}</h2>
           </div>
         ))}

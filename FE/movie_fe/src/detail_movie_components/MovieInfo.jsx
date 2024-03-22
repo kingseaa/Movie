@@ -1,6 +1,16 @@
+import React, { useState } from 'react';
+
 const MovieInfo = (props) => {
   console.log(props.Movie)
+  // State để lưu trữ số sao được chọn
+  const [rating, setRating] = useState(0);
 
+  // Hàm xử lý sự kiện khi click vào một ngôi sao
+  const handleStarClick = (selectedRating) => {
+    setRating(selectedRating);
+  };
+  
+  // console.table(rating)
   return (
     <>
 
@@ -12,8 +22,16 @@ const MovieInfo = (props) => {
               <h1 className="m-0 self-stretch relative text-inherit tracking-[0.01em] leading-[40px] font-bold font-inherit mq1050:text-7xl mq1050:leading-[32px] mq450:text-lgi mq450:leading-[24px] text-2xl md:text-3xl lg:text-3xl">
                 {movie.title}
               </h1>
-              <div className="self-stretch relative text-lg tracking-[0.01em] leading-[22px] text-grayscale-grayscale-60">
-                Release_date: {movie.release_date} • Rate: {movie.vote_average} • Vote: {movie.vote_count}
+              <div className="self-stretch relative text-lg tracking-[0.01em] leading-[22px] text-grayscale-grayscale-60 flex items-center">
+                <span className="mr-1">Release_date: {movie.release_date} •</span>
+                <img
+                  className="h-4 w-4 relative mr-1"
+                  loading="eager"
+                  alt=""
+                  src="/star.svg"
+                />
+                <span className="mr-1">{movie.vote_average}</span>
+                <span>• Vote: {movie.vote_count}</span>
               </div>
             </div>
           ))}
@@ -73,14 +91,25 @@ const MovieInfo = (props) => {
           </button>
           <button className="cursor-pointer [border:none] p-0 bg-[transparent] flex flex-row items-start justify-start">
             <div className="h-12 rounded-3xs bg-black box-border flex flex-row items-start justify-start py-3 pr-[25px] pl-[23px] gap-[10px] border-[1px] border-solid border-black1">
-              <img
-                className="h-6 w-6 relative overflow-hidden shrink-0"
-                alt=""
-                src="/iconsolidthumbup.svg"
-              />
-              <b className="relative text-sm tracking-[0.01em] leading-[22px] font-semibold-medium text-white text-left">
-                Like
-              </b>
+            {[...Array(5)].map((_, index) => (
+                <svg
+                  key={index}
+                  onClick={() => handleStarClick(index + 1)}
+                  className={`h-4 w-4 relative mr-1 cursor-pointer ${index < rating ? 'text-yellow-500' : 'text-gray-400'
+                }`}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path
+                d="M17.99,7.53a1,1,0,0,0-.81-.68l-5.55-.64L10.35,1.1a1,1,0,0,0-1.87,0L8.36,6.21,2.81,6.85a1,1,0,0,0-.81.68,1,1,0,0,0,.29.91l4,3.66L4.57,17.4a1,1,0,0,0,1.45,1.05L10,15.36l4.14,3.09a1,1,0,0,0,1.45-1.05l-1.52-5.86,4-3.66A1,1,0,0,0,17.99,7.53Z"
+              ></path>
+            </svg>
+              ))}
             </div>
           </button>
         </div>

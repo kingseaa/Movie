@@ -293,6 +293,7 @@ export default function Header(props) {
                 key={index}
               >
                 <div className=" bg-slate-600 mt-12 relative card-film rounded-md">
+                <Link  to={`/homepage/detail/${movie.movie_id}`}  >
                 <img
                   src={movie.poster}
                   alt={movie.title}
@@ -301,9 +302,9 @@ export default function Header(props) {
                 <div className="detail-content absolute bottom-0 w-full">
                   <div className="button flex justify-end  mb-2.5 mr-2.5  ">
                     {" "}
-                    <div className="p-3 rounded-full bg-green-500 mr-2 cursor-pointer" onClick={() => handlePlay(movie.title)}>
+                    {/* <div className="p-3 rounded-full bg-green-500 mr-2 cursor-pointer" onClick={() => handlePlay(movie.title)}>
                       <FaPlay color="white" />
-                    </div>
+                    </div> */}
                     <div className="p-3 rounded-full bg-slate-200">
                       <MdOutlineBookmarkAdd color="black" />
                     </div>
@@ -334,6 +335,7 @@ export default function Header(props) {
                     </div>
                   </div>
                 </div>
+                </Link>
               </div>
               </div>
             ))}

@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import svtt.example.movie_be.entities.ActorMovie;
 
 
+@Repository
 public interface ActorMovieRepository extends JpaRepository<ActorMovie,Integer> {
 	@Query(value = "SELECT M.*, A.actor_name, A.actor_id, A.actor_image, AM.characters FROM actor AS A "  +
 			" INNER JOIN actor_movie AS AM on AM.actor_id = A.actor_id " +
