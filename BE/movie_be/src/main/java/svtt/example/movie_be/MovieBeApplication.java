@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 		"controller", 
 		"repository", 
 		"service",
-		"entities", 
+		"entity", 
 		"dto",
 		"service.imp", 
 		"security"}) 
